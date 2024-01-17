@@ -14,7 +14,6 @@ import MenuItem from "@mui/material/MenuItem";
 
 const pages = ["KitchenWare", "Car Accessories", "HouseWare"];
 const settings = ["Admin"];
-
 const Navbar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
 		null
