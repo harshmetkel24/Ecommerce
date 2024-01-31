@@ -11,8 +11,28 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
+import FitbitIcon from "@mui/icons-material/Fitbit";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Badge } from "@mui/material";
+import Kitchenitems from "../KitchenWare";
+import Caritems from "../CarAccessories";
+import Houseitems from "../HouseWare";
 
-const pages = ["KitchenWare", "Car Accessories", "HouseWare"];
+
+const items = [
+	{ id:1, label: "KitchenWare", link: "/KitchenWare", data: Kitchenitems},
+	{ id:2, label: "Car Accessories", link: "/CarAccessories", data: Caritems},
+	{ id:3, label: "HouseWare", link: "/HouseWare", data: Houseitems},
+	{ id:4, label: "HouseWare", link: "/HouseWare",data: Houseitems },
+	{ id:5, label: "HouseWare", link: "/HouseWare",data: Houseitems },
+	{ id:6, label: "HouseWare", link: "/HouseWare",data: Houseitems },
+	{ id:7, label: "HouseWare", link: "/HouseWare",data: Houseitems },
+	{ id:8, label: "HouseWare", link: "/HouseWare",data: Houseitems },
+	{ id:9,label: "HouseWare", link: "/HouseWare",data: Houseitems },
+	{ id:10,label: "HouseWare", link: "/HouseWare",data: Houseitems },
+];
+const notifications = ["Notification 1"];
 const settings = ["Admin"];
 const Navbar = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -44,19 +64,26 @@ const Navbar = () => {
 					<Typography
 						variant="h6"
 						noWrap
-						component="a"
-						href="#app-bar-with-responsive-menu"
+						component={Link}
+						to="/"
 						sx={{
 							mr: 2,
 							display: { xs: "none", md: "flex" },
 							fontFamily: "monospace",
+							whiteSpace: "normal",
 							fontWeight: 700,
 							letterSpacing: ".3rem",
 							color: "inherit",
 							textDecoration: "none",
+							fontSize: "2em",
 						}}
 					>
-						LOGO
+						{/* Logo part */}
+						{/* VALAM VARIETY SHOP */}
+						<IconButton sx={{ color: "white" }}>
+							{" "}
+							<FitbitIcon sx={{ fontSize: "3em" }} />{" "}
+						</IconButton>
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,9 +115,17 @@ const Navbar = () => {
 								display: { xs: "block", md: "none" },
 							}}
 						>
-							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign="center">{page}</Typography>
+							{items.map((item) => (
+								<MenuItem
+									key={item.label}
+									component={Link}
+									to={{
+										pathname: item.link,
+									   // Pass the data object in the state
+									  }}
+									onClick={handleCloseNavMenu}
+								>
+									<Typography textAlign="center">{item.label}</Typography>
 								</MenuItem>
 							))}
 						</Menu>
@@ -98,40 +133,65 @@ const Navbar = () => {
 
 					<Typography
 						variant="h5"
+						component={Link}
+						to="/"
 						noWrap
-						component="a"
-						href="#app-bar-with-responsive-menu"
 						sx={{
 							mr: 2,
 							display: { xs: "flex", md: "none" },
 							flexGrow: 1,
 							fontFamily: "monospace",
 							fontWeight: 700,
+							whiteSpace: "normal",
 							letterSpacing: ".3rem",
 							color: "inherit",
 							textDecoration: "none",
 						}}
 					>
-						LOGO
+					<IconButton sx={{ color: "white" }}>
+							{" "}
+							<FitbitIcon sx={{ fontSize: "1em" }} />{" "}
+						</IconButton>
 					</Typography>
-					<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-						{pages.map((page) => (
+					<Box
+						sx={{
+							flexGrow: 1,
+							display: { xs: "none", md: "flex" },
+							flexWrap: "wrap",
+						}}
+					>
+						{items.map((item) => (
 							<Button
-								key={page}
+								key={item.label}
+								component={Link}
+								to={item.link}
 								onClick={handleCloseNavMenu}
-								sx={{ my: 2, color: "white", display: "block" }}
+								sx={{ color: "white", display: "block" }}
 							>
-								{page}
+								{item.label}
 							</Button>
 						))}
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>
-						<Tooltip title="Open settings">
+
+						{/* notifications css left */}
+						{/* <Tooltip title="Open settings">
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-								<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+								{notifications.length > 0 ? (
+									<Badge
+										badgeContent={[]}
+										color="error"
+									>
+										<NotificationsIcon
+											sx={{ color: "white", fontSize: "2em" }}
+										/>
+									</Badge>
+								) : (
+									<NotificationsIcon sx={{ color: "white", fontSize: "2em" }} />
+								)}
 							</IconButton>
-						</Tooltip>
+						</Tooltip> */}
 						<Menu
 							sx={{ mt: "45px" }}
 							id="menu-appbar"

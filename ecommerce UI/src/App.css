@@ -1,0 +1,8 @@
+.MuiDialog-paper{
+    width:450px;
+}
+@media (max-width: 500px) {
+    .MuiDialog-paper{
+        width:300px;
+    }
+}

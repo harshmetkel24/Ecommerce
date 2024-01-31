@@ -1,2 +1,4 @@
 import Navbar from "./Navbar"
-export {Navbar}
+import SingleItem from "./SingleItem"
+import GeneralAlert from "./GeneralAlert"
+export {Navbar, SingleItem, GeneralAlert}

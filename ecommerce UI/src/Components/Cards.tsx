@@ -5,27 +5,40 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { SingleItem } from '.';
+import { Link } from 'react-router-dom';
+import { Box, ListItem } from '@mui/material';
+import { InsertEmoticon } from '@mui/icons-material';
 
-const MediaCard = ()=> {
+type TProps = {mainIndex:number, id:number, title:string, content:string, price:number}
+const MediaCard = ({mainIndex, id,title,content,price} :TProps )=> {
+
+  const [openSingleItem,setOpenSingleItem] = React.useState<boolean>(false);
+  const handleClick = ()=> {
+    setOpenSingleItem(true);
+  }
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300}}>
       <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        sx={{ height: 200 }}
+        image="/image/img1.webp"
         title="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
+        <Box display="flex" justifyContent="space-between">
+        <Typography gutterBottom variant="h6" component="div">
+          {title}
         </Typography>
+        <Button size="small" variant='contained'> Rs.{price} </Button>
+        </Box>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {content}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        
+        <Button size="small" sx={{alignItems:"center"}} onClick={handleClick}>More Photos & Videos</Button>
+        {openSingleItem && <SingleItem mainIndex = {mainIndex} index={id} open={openSingleItem} setOpen={setOpenSingleItem}/> }
       </CardActions>
     </Card>
   );
