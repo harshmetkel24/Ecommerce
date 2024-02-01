@@ -6,9 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { SingleItem } from '.';
-import { Link } from 'react-router-dom';
-import { Box, ListItem } from '@mui/material';
-import { InsertEmoticon } from '@mui/icons-material';
+import { Box } from '@mui/material';
 
 type TProps = {mainIndex:number, id:number, title:string, content:string, price:number}
 const MediaCard = ({mainIndex, id,title,content,price} :TProps )=> {

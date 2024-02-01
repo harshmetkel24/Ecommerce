@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navbar, GeneralAlert } from '../Components'
 import { Typography } from '@mui/material'
 

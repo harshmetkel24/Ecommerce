@@ -1,4 +1,3 @@
-import React from "react";
 import { FrontTabs } from "../Components/FrontTabs";
 import Kitchenitems from "../KitchenWare";
 import { GeneralAlert, Navbar } from "../Components";

@@ -1,6 +1,4 @@
 import { CssBaseline } from "@mui/material";
-import { Navbar, SingleItem } from "./Components";
-import { ThemeProvider } from "@emotion/react";
 import "./App.css"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
