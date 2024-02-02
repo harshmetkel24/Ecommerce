@@ -1,5 +1,3 @@
-import React from "react";
-import Navbar from "./Navbar";
 import { Container, Grid } from "@mui/material";
 import MediaCard from "./Cards";
 
